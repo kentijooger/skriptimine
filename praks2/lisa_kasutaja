@@ -2,8 +2,13 @@
 #
 # Kasutaja loomine ilma paroolita
 #
-echo -n "Sisesta kasutajnimi: "
-read kasutaja
+#echo -n "Sisesta kasutajnimi: "
+#read kasutajaÃ
+kasutaja=$1
 useradd $kasutaja -m -s /bin/bash
+
+#cat /etc/passwd | grep $kasutaja
+#cat /etc/shadow Å| grep $kasutaja
+
 
 # skripti lÃµpp
