@@ -1,0 +1,9 @@
+#!/bin/bash
+# loo kasutaja nimi käsurealt
+kasutaja=$1
+# loo ja seadista kaust
+mkdir /home/$kasutaja/public
+# määra õigused
+chown $kasutaja:$kasutaja /home/$kasutaja/public
+chmod 777 /home/$kasutaja/public
+
