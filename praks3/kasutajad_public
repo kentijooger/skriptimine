@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+kasutaja=$1
+dir=/home/$kasutaja/public/
+# Kontrollitakse kas kaust on olemas või mitte kui ei ole luuakse
+	if [ -d $dir ]; then
+		perm=$(stat -c %a $dir)
+		echo "Public kaust on olemas"
+	else
+	sh ./lisa_public $kasutaja
+	echo "Public kausta pole olemas"
+	echo "Loodud kasutajale $kasutaja public kaust"
+	exit
+fi
+# Kontrollitakse õigused üle kas on 777, kui mitte siis pannakse 777
+	if [ $perm = "777" ]; then
+	echo "õigused on 777"
+	else
+	chmod 777 /home/$kasutaja/public/
+	echo "Kasutaja õigused muudetud 777"
+fi
+
