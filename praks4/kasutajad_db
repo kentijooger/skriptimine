@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# Kontrollib kas on olemas .my.cnf conf ja vastavalt kasutajl andmebaas
+#
+
+for kasutaja in $(ls /home)
+do
+	if [ ! -f /home/$kasutaja/.my.cnf ]; then
+		sh lisa_db $kasutaja
+		echo " loodi kasutaja $kasutaja koos conf failiga"
+	else
+		echo "kasutaja" $kasutaja ".my.cnf conf on juba olemas"
+	fi
+done
