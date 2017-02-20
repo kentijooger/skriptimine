@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+# Kasutaja kodukatooligst backup
+#
+kasutaja=$1
+#
+TIME=$(date +%d.%m.%y)
+FILENAME=$kasutaja-$TIME.tar.bz2
+SRCDIR=/home/$kasutaja
+DESDIR=/backup
+tar -jcvf $DESDIR/$FILENAME $SRCDIR
