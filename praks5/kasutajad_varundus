@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# Kontrollib, mis kasutajatel on home kaustast backup tehtud
+#
+TIME=$(date +%d.%m.%y)
+#
+	for kasutaja in $(awk -F'[/:]' '{if ($3 >= 1000 && $3 != 65534) print $1}' /etc/passwd)
+	do
+		if [ -f /backup/$kasutaja.$TIME.tar.bz2 ]; then
+			echo "Kasutaja $kasutaja on home kaustast backup olemas"
+	else
+		tar -cvjSf /backup/$kasutaja.$TIME.tar.bz2 /home/$kasutaja
+			echo "Kasutaja $kasutaja on backup home kaustast loodud"
+fi
+done
+
