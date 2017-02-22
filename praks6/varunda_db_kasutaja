@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Teeb kasutaja andmebaasist varu
+#
+echo "Sisesta kasutajanimi"
+read kasutaja
+andmebaas=$kasutaja
+TIME=$(date +%y-%m-Â%d.%H-%M.$andmebaas.backup.sql)
+mysqldump --user=root --password=Qwerty123 $andmebaas > /mysql_backup/$TIME.$andmebaas.backup.sql
+
