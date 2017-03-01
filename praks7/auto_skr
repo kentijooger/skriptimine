@@ -1,0 +1,3 @@
+SHELL = /bin/bash
+MAILTO= root
+00 15 * * * /root/skriptimine/praks5/kasutajad_varundus 
